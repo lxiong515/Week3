@@ -18,7 +18,7 @@ public class ListItem {
 	@Column(name="ID")
 	private int id;
 	@Column(name="YEAR")
-	private int year;
+	private String year;
 	@Column(name="LOCATION")
 	private String location;
 	
@@ -36,12 +36,12 @@ public class ListItem {
 	}
 
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
@@ -56,7 +56,8 @@ public class ListItem {
 	}
 
 
-	public	ListItem(int year,	String	location){
+	public	ListItem(String year,	String	location){
+		super();
 		this.year	=	year;
 		this.location	=	location;
 		}

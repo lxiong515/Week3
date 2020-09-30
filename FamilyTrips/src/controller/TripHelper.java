@@ -22,7 +22,7 @@ public class TripHelper {
 	}
 	
 	public	List<ListItem>	showAllItems(){
-		EntityManager	em	=	emfactory.createEntityManager();
+		EntityManager em	=	emfactory.createEntityManager();
 		//list all items
 		List<ListItem>allItems = em.createQuery("SELECT i FROM ListItem i").getResultList();
 		return	allItems;
@@ -31,9 +31,9 @@ public class TripHelper {
 
 	
 	public	void	deleteItem(ListItem	toDelete)	{
-		EntityManager	em	=	emfactory.createEntityManager();
+		EntityManager em	=	emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListItem>	typedQuery	=	em.createQuery("select li from ListItem	li where li.year = :selectedYear and li.location = :selectedLocation", ListItem.class);
+		TypedQuery<ListItem> typedQuery	= em.createQuery("select li from ListItem li where li.year = :selectedYear and li.location = :selectedLocation", ListItem.class);
 		//Substitute	parameter	with	actual	data	from	the	toDelete	item
 		typedQuery.setParameter("selectedYear",	toDelete.getYear());
 		typedQuery.setParameter("selectedLocation",	toDelete.getLocation());
@@ -47,29 +47,29 @@ public class TripHelper {
 		em.close();
 		}
 	
-	public	List<ListItem>	searchForTripByLocation(String	tripLocation)	{
+	public	List<ListItem>	searchForTripByLocation(String	tripLocation) {
 //		TODO	Auto-generated	method	stub
-	EntityManager em	=	emfactory.createEntityManager();
+	EntityManager em = emfactory.createEntityManager();
 	em.getTransaction().begin();
-	TypedQuery<ListItem>	typedQuery	=	em.createQuery("select li from ListItem	li	where	li.location	=	:selectedLocation",	ListItem.class);
+	TypedQuery<ListItem> typedQuery	= em.createQuery("select li from ListItem li where li.location = :selectedLocation", ListItem.class);
 	typedQuery.setParameter("selectedItem",	tripLocation);
-	List<ListItem>	foundItems	=	typedQuery.getResultList();
+	List<ListItem> foundItems =	typedQuery.getResultList();
 	em.close();
 	return	foundItems;
 	}
 	
-	public	List<ListItem>	searchForTripByYear(int	tripYear)	{
+	public List<ListItem> searchForTripByYear(String tripYear){
 //		TODO	Auto-generated	method	stub
-	EntityManager	em	=	emfactory.createEntityManager();
+	EntityManager em = emfactory.createEntityManager();
 	em.getTransaction().begin();
-	TypedQuery<ListItem> typedQuery	=	em.createQuery("select li from	ListItem	li	where	li.year	=	:selectedYear",	ListItem.class);
+	TypedQuery<ListItem> typedQuery	= em.createQuery("select li from ListItem li where li.year = :selectedYear", ListItem.class);
 	typedQuery.setParameter("selectedYear",	tripYear);
-	List<ListItem>	foundItems	=	typedQuery.getResultList();
+	List<ListItem> foundItems =	typedQuery.getResultList();
 	em.close();
 	return	foundItems;
 	}
 	
-	public	ListItem	searchForTripById(int idToEdit)	{
+	public ListItem	searchForTripById(int idToEdit)	{
 //		TODO	Auto-generated	method	stub
 	EntityManager	em	=	emfactory.createEntityManager();
 	em.getTransaction().begin();
@@ -78,9 +78,9 @@ public class TripHelper {
 	return	found;
 	}
 	
-	public	void	updateTrip(ListItem	toEdit)	{
+	public void updateTrip(ListItem	toEdit)	{
 //		TODO	Auto-generated	method	stub
-	EntityManager	em	=	emfactory.createEntityManager();
+	EntityManager em = emfactory.createEntityManager();
 	em.getTransaction().begin();
 	em.merge(toEdit);
 	em.getTransaction().commit();

@@ -12,7 +12,7 @@ public class StartProgram {
 		private static void addAnItem() {
 			// TODO Auto-generated method stub
 			System.out.print("Enter a year: ");
-			int year = in.nextInt();
+			String year = in.nextLine();
 			System.out.print("Enter a location: ");
 			String location = in.nextLine();
 
@@ -23,7 +23,7 @@ public class StartProgram {
 		private static void deleteAnItem() {
 			// TODO Auto-generated method stub
 			System.out.print("Enter the year to delete: ");
-			int year = in.nextInt();
+			String year = in.nextLine();
 			System.out.print("Enter the location to delete: ");
 			String location = in.nextLine();
 
@@ -41,7 +41,7 @@ public class StartProgram {
 			List<ListItem> foundItems;
 			if (searchBy == 1) {
 				System.out.print("Enter the year of trip: ");
-				int tripYear = in.nextInt();
+				String tripYear = in.nextLine(); //changed to String and nextLine
 				foundItems = lih.searchForTripByYear(tripYear);
 			} else {
 				System.out.print("Enter the location: ");
@@ -66,7 +66,7 @@ public class StartProgram {
 
 				if (update == 1) {
 					System.out.print("New Year: ");
-					int newYear = in.nextInt();
+					String newYear = in.nextLine();
 					toEdit.setYear(newYear);
 				} else if (update == 2) {
 					System.out.print("New Location: ");
